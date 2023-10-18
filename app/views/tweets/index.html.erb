@@ -1,0 +1,30 @@
+
+
+<%= render 'new' %>
+
+<ul>
+    <% @tweets.each do |t| %>
+        <li>
+            <p><%= t.content %></p>
+            <%= image_tag t.user.profile_picture.variant(resize: "30x30"), class: 'rounded-circle' if t.user.profile_picture.attached? %>
+            <p><%= link_to t.user.username, user_path(t.user) %></p>
+            
+            <% if t.user == current_user %>
+                <%= link_to 'Edit', edit_tweet_path(t), class: 'btn btn-primary' %>
+                <%= button_to 'Delete', t, method: :delete, class: 'btn btn-danger' %>
+            <% end %>
+
+            <% if current_user.liked_tweets.include?(t) %>
+                <%= button_to 'Unlike', tweet_like_path(t, t.likes.find_by(user: current_user)), method: :delete %>
+            <% else %>
+                <%= button_to 'Like', tweet_likes_path(t), method: :post %>
+            <% end %>
+
+            <p> <%= t.likes.count %> likes </p>
+
+            <%= link_to 'Comment', tweet_path(t) %>
+        </li>
+    <% end %>
+
+
+</ul>

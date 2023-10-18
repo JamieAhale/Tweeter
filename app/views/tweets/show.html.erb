@@ -1,0 +1,30 @@
+<h1><%= @tweet.user.username %>'s Tweet</h1>
+
+<p>
+  <%= @tweet.content %>
+</p>
+
+<% if @tweet.user == current_user %>
+  <%= link_to 'Edit', edit_tweet_path(@tweet) %> 
+  <%= link_to 'Delete', tweet_path(@tweet), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<h3>Comments<h3>
+
+<% @tweet.comments.each do |comment| %>
+  <p>
+    <strong><%= comment.user.username %></strong>
+    <%= image_tag comment.user.profile_picture.variant(resize: "30x30"), class: 'rounded-circle' if comment.user.profile_picture.attached? %>
+    <%= comment.content %>
+    <% if comment.user == current_user %>
+      <% button_to 'Delete', tweet_comment_path(@tweet,comment), method: :delete %>
+    <% end %>
+  </p>
+<% end %>
+
+<%= form_for [@tweet, Comment.new] do |f| %>
+  <%= f.text_area :content, placeholder: 'Add a comment...' %>
+  <%= f.submit 'Post Comment' %>
+<% end %>
+
+<%= link_to 'Back', tweets_path %>

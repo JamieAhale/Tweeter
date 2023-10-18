@@ -1,0 +1,26 @@
+<h2>Edit Tweet</h2>
+
+<%= form_with(model: @tweet, local: true) do |form| %>
+
+  <% if @tweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+      <ul>
+      <% @tweet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %><br />
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Tweet", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', tweets_path %>
