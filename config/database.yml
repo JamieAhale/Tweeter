@@ -52,3 +52,12 @@ test:
   username: postgres
   password:
   timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tweeter_production
+  pool: 5
+  username: postgres
+  password:
+  timeout: 5000
