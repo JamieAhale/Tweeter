@@ -1,3 +1,25 @@
-<div class="tweet">
-  <p><%= tweet.content %></p>
+<div class="single-tweet-container">
+    <div class="tweet-avatar">
+        <%= image_tag tweet.user.profile_picture.variant(resize: "50x50"), class: 'rounded-avatar' if tweet.user.profile_picture.attached? %>
+    </div>
+    <div class="single-tweet-content">
+        <p class="single-tweet-text"><%= tweet.content %></p>
+        <h4 class="tweet-username"><%= link_to tweet.user.username, user_path(tweet.user) %></h4>
+
+        <div class="single-tweet-actions">
+            <% if tweet.user == current_user %>
+                <%= link_to 'Edit', edit_tweet_path(tweet), class: 'btn single-tweet-btn-primary' %>
+                <%= link_to 'Delete', tweet, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn single-tweet-btn-danger' %>
+            <% end %>
+
+            <% if current_user.liked_tweets.include?(tweet) %>
+                <%= button_to 'Unlike', tweet_like_path(tweet, tweet.likes.find_by(user: current_user)), method: :delete, class: 'single-tweet-action unlike' %>
+            <% else %>
+                <%= button_to 'Like', tweet_likes_path(tweet), method: :post, class: 'single-tweet-action like' %>
+            <% end %>
+
+            <span class="single-tweet-likes"><%= tweet.likes.count %> likes</span>
+            <%= link_to 'Comment', tweet_path(tweet), class: 'single-tweet-action-comment' %>
+        </div>
+    </div>
 </div>

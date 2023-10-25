@@ -1,5 +1,5 @@
 <%= form_with model: @tweet, url: tweets_path, method: :post do |t| %>
     <%= t.hidden_field "tweet[user_id]"%>
-    <%= t.text_area "tweet[content]", placeholder: "What's on your mind?" %>
-    <%= t.submit 'Tweet' %>
+    <%= t.text_area "tweet[content]", class: 'new-tweet-text-area', placeholder: "What's on your mind?" %>
+    <%= t.submit 'Tweet', class: 'submit-tweet-button' %>
 <% end %>

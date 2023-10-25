@@ -1,0 +1,167 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #F5F8FA;
+    color: #14171A;
+}
+
+.tweets-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.tweet {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 15px;
+    margin: 20px;
+    border-bottom: 1px solid #E1E8ED;
+    background-color: #FFFFFF;
+}
+
+.tweet-avatar {
+    margin-right: 15px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.rounded-avatar {
+    border-radius: 50%;
+    display: block;
+    padding: 20px 10px;
+}
+
+.tweet-username {
+    margin: 0;
+    color: #1DA1F2;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+}
+
+.tweet-text {
+    margin: 5px 0;
+    font-size: 20px;
+    padding-left: 7px;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+
+.tweet-actions {
+    display: flex;         /* Enable flexbox */
+    align-items: center;   /* Vertically align items in the center */
+    gap: 10px;             /* Gap between action items for spacing */
+    margin-top: 5px;
+}
+
+.action-item {
+    margin: 0;             /* Remove default margins */
+    display: inline-flex;  /* Enable flexbox for individual items */
+    align-items: center;     
+}
+
+.btn-tweet-action {
+    margin-right: 5px;
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+.btn-tweet-action.like:hover,
+.btn-tweet-action.comment:hover {
+    text-decoration: underline;
+}
+
+.btn-tweet-action.unlike {
+    color: #E0245E; /* Twitter's red color for Unlike */
+    margin-left: 5px;
+}
+
+.tweet-likes {
+    display: inline-block;
+    margin-right: 10px;
+    color: #657786; /* Twitter's secondary text color */
+    font-size: 11px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    color: inherit;
+}
+
+.btn-primary {
+    background-color: #1DA1F2;
+    color: #FFFFFF;
+}
+
+.btn-danger {
+    background-color: #E0245E;
+    color: #FFFFFF;
+}
+
+.btn-tweet-action-comment {
+    font-size: 10px;
+    color: #1DA1F2;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    height: 100vh; /* Take full viewport height */
+    max-width: 600px; /* Take full viewport width */
+    padding: 20px; /* Optional: to ensure content doesn't touch the viewport edges */
+}
+
+.btn-edit-delete {
+    color: #1DA1F2;
+    background-color: #E1E8ED;
+    margin-right: 5px;
+}
+
+
+.btn-edit-delete:visited {
+    color: #1DA1F2; 
+    text-decoration: none;  /* Remove the underline, if any */
+}
+
+
+.new-tweet-container {
+    width: 100%;          /* Take full width of parent */
+    text-align: center;   /* Center inline or inline-block content */
+    margin-bottom: 20px;  /* Add some spacing below the new tweet form */
+    padding-top: 20px;
+}
+
+.new-tweet-text-area {
+    width: 400px;       /* Set width to 100% of its container */
+    height: 100px;     /* Or any desired height */
+    padding: 10px;     /* Add padding for better appearance */
+    font-size: 16px;   /* Adjust font size if needed */
+    resize: vertical;  /* Allows the user to resize the textarea vertically */
+}
+
+.submit-tweet-button {
+    padding: 6px 12px;
+    background-color: #1DA1F2;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+

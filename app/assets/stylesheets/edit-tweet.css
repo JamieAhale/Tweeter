@@ -1,0 +1,70 @@
+.tweet-edit-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #E1E8ED;
+    border-radius: 4px;
+}
+
+.tweet-error-explanation {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0245E; /* Twitter's red color */
+    background-color: #fdd;
+    color: #E0245E;
+    border-radius: 4px;
+}
+
+.tweet-field {
+    margin-bottom: 15px;
+}
+
+.tweet-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.tweet-textarea {
+    width: 95%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #E1E8ED;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.tweet-actions {
+    text-align: right;
+}
+
+.tweet-btn-primary {
+    padding: 6px 12px;
+    background-color: #1DA1F2;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tweet-back-link {
+    display: inline-block;
+    margin-top: 9px;
+    color: #1DA1F2;
+    text-decoration: none;
+    padding-left: 8px;
+    padding-top: 8px;
+}
+
+.tweet-back-link:hover {
+    text-decoration: underline;
+}
+
+.edit-tweet-title {
+    color: #1DA1F2;
+    padding-left: 5px;
+}

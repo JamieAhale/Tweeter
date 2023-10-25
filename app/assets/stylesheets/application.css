@@ -13,3 +13,78 @@
  *= require_tree .
  *= require_self
  */
+
+ /* General Reset */
+
+ *= require_tree .
+
+ body {
+    font-family: Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+
+    padding: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+  }
+
+  .navbar-left a,
+  .navbar-left a:visited {
+    color: dodgerblue;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Creates a gap between elements inside .navbar-right */
+  }
+
+  .navbar-right a {
+    color: dodgerblue;
+    text-decoration: none;
+  }
+
+  .navbar-right a:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-picture {
+    margin-right: 10px;
+  }
+  
+  .btn {
+    margin-left: 5px; /* Adds spacing between the buttons */
+  }
+
+  .btn-danger {
+    padding: 7px 15px;
+    font-size: 15px;
+    background-color: #1DA1F2; /* Twitter's distinct blue color */
+    color: #FFFFFF; /* White text color */
+    border-radius: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+  
+
+}
+
+.btn-danger:hover {
+    background-color: #0C83D9; /* Slightly darker shade of blue for hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow on hover */
+}
+
+.btn-danger:active {
+    background-color: #0A74BF; /* Even darker shade of blue for active state (button press) */
+}
+  

@@ -1,30 +1,37 @@
+<div class='center container'>
+    <div class='new-tweet-container'>
+        <%= render 'new' %>
+    </div>
+
+    <div class="tweets-container">
+        <% @tweets.each do |t| %>
+            <div class="tweet">
+                <div class="tweet-avatar">
+                    <%= image_tag t.user.profile_picture.variant(resize: "50x50"), class: 'rounded-avatar' if t.user.profile_picture.attached? %>
+                </div>
+                <div class="tweet-content">
+                    <p class="tweet-text"><%= t.content %></p>
+                    <h4 class="tweet-username"><%= link_to t.user.username, user_path(t.user) %></h4>
+
+                    <div class="tweet-actions">
+                        <% if t.user == current_user %>
+                            <%= link_to 'Edit', edit_tweet_path(t), class: 'btn btn-edit-delete action-item' %>
+                            <%= button_to 'Delete', t, method: :delete, class: 'btn btn-edit-delete action-item' %>
+                        <% end %>
+
+                        <% if current_user.liked_tweets.include?(t) %>
+                            <%= button_to 'Unlike', tweet_like_path(t, t.likes.find_by(user: current_user)), method: :delete, class: 'btn-tweet-action unlike action-item' %>
+                        <% else %>
+                            <%= button_to 'Like', tweet_likes_path(t), method: :post, class: 'btn-tweet-action like action-item' %>
+                        <% end %>
+
+                        <span class="tweet-likes action-item"><%= t.likes.count %> likes</span>
+                        <%= link_to 'Comment', tweet_path(t), class: 'btn-tweet-action-comment action-item' %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 
 
-<%= render 'new' %>
-
-<ul>
-    <% @tweets.each do |t| %>
-        <li>
-            <p><%= t.content %></p>
-            <%= image_tag t.user.profile_picture.variant(resize: "30x30"), class: 'rounded-circle' if t.user.profile_picture.attached? %>
-            <p><%= link_to t.user.username, user_path(t.user) %></p>
-            
-            <% if t.user == current_user %>
-                <%= link_to 'Edit', edit_tweet_path(t), class: 'btn btn-primary' %>
-                <%= button_to 'Delete', t, method: :delete, class: 'btn btn-danger' %>
-            <% end %>
-
-            <% if current_user.liked_tweets.include?(t) %>
-                <%= button_to 'Unlike', tweet_like_path(t, t.likes.find_by(user: current_user)), method: :delete %>
-            <% else %>
-                <%= button_to 'Like', tweet_likes_path(t), method: :post %>
-            <% end %>
-
-            <p> <%= t.likes.count %> likes </p>
-
-            <%= link_to 'Comment', tweet_path(t) %>
-        </li>
-    <% end %>
-
-
-</ul>
