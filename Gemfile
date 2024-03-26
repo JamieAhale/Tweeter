@@ -14,7 +14,7 @@ gem "puma", ">= 5.0"
 gem 'devise'
 
 # Use Postgres as the database for Active Record
-gem 'pg'
+# gem 'pg'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -49,6 +49,9 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+  gem 'sqlite3', '~> 1.4'
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do
@@ -63,9 +66,12 @@ group :development do
 
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
   gem "selenium-webdriver"
 end
 
